@@ -83,7 +83,7 @@ web_modules/
 .env.production.local
 .env.local
 
-src/environment/env.json
+src/environment/env.ts
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

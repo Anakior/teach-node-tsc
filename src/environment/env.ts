@@ -1,1 +1,0 @@
-export const database = "mongodb+srv://test:2LudF5rt33nSoULr@cluster0.vdftuva.mongodb.net/";
