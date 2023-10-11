@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { database } from "../../environment/env";
+import { database } from "../../environments/env";
 
 export class DatabaseService {
     initDatabase() {
