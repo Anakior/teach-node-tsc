@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { database } from "../../environment/env";
 
 export class DatabaseService {
     initDatabase() {
-        mongoose.connect("mongodb+srv://test:2LudF5rt33nSoULr@cluster0.vdftuva.mongodb.net/").then(() => {
+        mongoose.connect(database).then(() => {
             console.log("Connected to database");
         });
     }
