@@ -1,5 +1,4 @@
 import Author from "../../models/author/author.model";
-import { Request, Response } from 'express';
 
 export class AuthorController {
     createAuthor() {
@@ -11,39 +10,26 @@ export class AuthorController {
         author.save();
     }
 
-    //post d'un autheur
-    // async postAuthor(req: Request, res: Response) {
-    //     try {
-    //       const author = new Author();
-    //       const savedAuthor = await author.save();
-    //       res.status(201).json(savedAuthor);
-    //       console.log("autheur crée")
-    //     } catch (error) {
-    //       console.error('Erreur lors de la création de l\'auteur :', error);
-    //     }
-    //   }
+    // post d'un autheur
+  
 
-    async postAuthor(req, res){
+      async postAuthor(req, res) {
         try {
-            const author = new Author({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                title: req.body.title,
-                description: req.body.description,
-                avatar: req.body.avatar,
-                socialNetwork: req.body.socialNetwork
-              });
-              const savedAuthor = await author.save()
-              res.json(savedAuthor)
-              console.log("autheur crée")
+          console.log(req.body);
+         
+          const authorData = req.body;
+          const author = new Author(authorData);
+          const savedAuthor = await author.save();
+          res.json(savedAuthor);
+          console.log("Auteur créé");
         } catch (error) {
-            console.error("erreur lors de la création de l'autheur:", error)
+          console.error('Erreur lors de la création de l\'auteur :', error);
         }
-    }
+      }
 
 
     // on recup tous les autheurs
-    async getAuthors(req: Request, res: Response) {
+    async getAuthors(req, res) {
         try {
           const author = await Author.find();
           res.json(author);
@@ -54,7 +40,7 @@ export class AuthorController {
       }
 
     // on recup un auteur par ID
-  async getAuthorById(req: Request, res: Response) {
+  async getAuthorById(req, res) {
     const authorId = req.params.id;
     try {
       const author = await Author.findById(authorId);
