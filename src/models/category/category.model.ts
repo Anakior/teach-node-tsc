@@ -7,7 +7,9 @@ const categorySchema = new Schema({
   metaTitle: String,
   metaDescription: String,
   metaUrl: String,
-  image: String
+  image: String,
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: {type: Date , default: Date.now}
 });
 
 const Category = model('Category', categorySchema);

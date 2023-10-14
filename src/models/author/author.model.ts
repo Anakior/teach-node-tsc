@@ -7,7 +7,9 @@ const authorSchema = new Schema({
   title: String,
   description: String,
   avatar: String,
-  socialNetwork: String
+  socialNetwork: String,
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: {type: Date , default: Date.now}
 });
 
 const Author = model('Author', authorSchema);
