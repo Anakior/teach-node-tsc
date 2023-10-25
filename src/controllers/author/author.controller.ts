@@ -30,7 +30,7 @@ export class AuthorController {
     try {
       const author = await Author.find();
       res.json(author);
-      console.log("liste des autheurs récupérée");
+      console.log("liste des auteurs récupérée");
     } catch (error) {
       console.error("Erreur lors de la récupération des auteurs :", error);
     }
@@ -42,6 +42,7 @@ export class AuthorController {
       const authorId = req.params.id;
       // console.log(authorId)
       const author = await Author.findById(authorId);
+      console.log("auteur id recuperé")
       if (!author) {
         return res.status(404).json({ error: "Auteur introuvable" });
       } else {
